@@ -256,13 +256,63 @@
 
 <section id="contact">
   <h2>Contact</h2>
+
   <p>If you have any questions regarding the blind prediction competition, please feel free to contact:</p>
   <ul>
     <li>Mati Ullah Shah – <a href="mailto:mati.shah@epfl.ch">mati.shah@epfl.ch</a></li>
     <li>Dr. Savvas Saloustros – <a href="mailto:savvas.saloustros@epfl.ch">savvas.saloustros@epfl.ch</a></li>
     <li>Prof. Katrin Beyer – <a href="mailto:katrin.beyer@epfl.ch">katrin.beyer@epfl.ch</a></li>
   </ul>
+
+  <h3>Send us a message</h3>
+  <form id="contactForm" method="post">
+    <label for="name">Your Name:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
+
+    <label for="email">Your Email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="message">Your Question:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <!-- Honeypot field for bots -->
+    <input type="text" name="website" style="display:none">
+
+    <!-- Google reCAPTCHA v2 -->
+    <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div><br>
+
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div id="formResult"></div>
 </section>
+
+<!-- Load reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- AJAX form submission -->
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // prevent default form submission
+
+    var form = e.target;
+    var formData = new FormData(form);
+
+    fetch('send_message.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('formResult').innerHTML = data;
+        form.reset(); // optional: reset form
+        grecaptcha.reset(); // reset reCAPTCHA
+    })
+    .catch(error => {
+        document.getElementById('formResult').innerHTML = "Error sending message.";
+    });
+});
+</script>
 
 </div>
 
