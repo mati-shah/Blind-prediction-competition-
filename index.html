@@ -1,112 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Blind Prediction Competition</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #333;
-      line-height: 1.6;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Blind Prediction Competition</title>
+<style>
+  /* Colors */
+  :root {
+    --lake-leman-blue: #006CA6;
+    --bg-gray: #f7f7f7;
+    --text-dark: #333;
+    --card-bg: #fff;
+    --card-shadow: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Global */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-gray);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* Header */
+  header {
+    background: var(--lake-leman-blue);
+    color: #fff;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  header h1 {
+    margin: 0;
+  }
+  header p {
+    margin: 0.5rem 0 0;
+  }
+
+  /* Navigation */
+  nav {
+    background: #004E7C;
+    padding: 0.5rem;
+    text-align: center;
+  }
+  nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 1rem;
+  }
+
+  /* Sections */
+  section {
+    margin-bottom: 3rem;
+  }
+  section h2 {
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Cards for walls / datasets */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .card {
+    background: var(--card-bg);
+    box-shadow: 0 2px 8px var(--card-shadow);
+    border-radius: 6px;
+    flex: 1 1 calc(33% - 1rem);
+    min-width: 280px;
+    padding: 1rem;
+  }
+  .card h3 {
+    margin-top: 0;
+  }
+  .card p {
+    font-size: 0.95rem;
+  }
+  .card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    background: var(--lake-leman-blue);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+  }
+  .card a:hover {
+    background: #00527C;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: var(--lake-leman-blue);
+    color: #fff;
+  }
+
+  /* Responsive */
+  @media(max-width: 768px) {
+    .card-container {
+      flex-direction: column;
     }
-    header {
-      background: #1a1a1a;
-      color: #fff;
-      padding: 1.5rem;
-      text-align: center;
-    }
-    nav {
-      background: #333;
-      padding: 0.5rem;
-    }
-    nav a {
-      color: #fff;
-      margin-right: 1rem;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 1.5rem;
-      background: #fff;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-      margin-top: 1.5rem;
-      border-radius: 6px;
-    }
-    h2 {
-      margin-top: 2rem;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.5rem;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      background: #1a1a1a;
-      color: #fff;
-    }
-  </style>
+  }
+
+  /* Google Form embed */
+  iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 6px;
+  }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Blind Prediction Competition</h1>
-    <p>Multi-Leaf Rubble Stone Masonry Walls</p>
-  </header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#rules">Rules</a>
-    <a href="#data">Event Data</a>
-    <a href="#register">Registration</a>
-    <a href="#results">Results</a>
-  </nav>
+<header>
+  <h1>Blind Prediction Competition: Multi-Leaf Rubble Stone Masonry Walls</h1>
+  <p>December 01, 2025</p>
+</header>
 
-  <div class="container">
-    <section id="about">
-      <h2>About the Event</h2>
-      <p>
-        This blind prediction contest challenges participants to make accurate predictions
-        based on provided datasets. Event details, timelines, and updates will appear here.
-      </p>
-    </section>
+<nav>
+  <a href="#about">Home</a>
+  <a href="#walls">Walls & Data</a>
+  <a href="#registration">Registration</a>
+  <a href="#rules">Rules</a>
+  <a href="#results">Results</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <section id="rules">
-      <h2>Rules</h2>
-      <ul>
-        <li>Participants must submit predictions before the deadline.</li>
-        <li>No changes allowed after submission.</li>
-        <li>Scores will be computed using the official scoring method.</li>
-        <li>Any form of cheating results in disqualification.</li>
-      </ul>
-    </section>
+<div class="container">
 
-    <section id="data">
-      <h2>Event Data</h2>
-      <p>Data files will be uploaded here. You can add links to CSVs or PDFs once available.</p>
-      <ul>
-        <li><a href="#">Sample Dataset (placeholder)</a></li>
-      </ul>
-    </section>
+<section id="about">
+  <h2>About the Competition</h2>
+  <p>This blind prediction contest challenges participants to submit predictions for the structural response of multi-leaf rubble stone masonry walls. Participants will receive experimental datasets and can submit predictions before the testing phase. The goal is to validate numerical models against high-fidelity experimental data.</p>
+</section>
 
-    <section id="register">
-      <h2>Registration</h2>
-      <p>You can embed or link your Google Form here.</p>
-      <p><a href="#">Registration Form (placeholder)</a></p>
-    </section>
-
-    <section id="results">
-      <h2>Results</h2>
-      <p>Leaderboard and scores will be posted here after submissions are evaluated.</p>
-    </section>
+<section id="walls">
+  <h2>Walls & Datasets</h2>
+  <div class="card-container">
+    <div class="card">
+      <h3>Wall 01</h3>
+      <p>Limestone, stone size: 20–25 cm, plastered on one side. Distinct microstructure.</p>
+      <a href="#">Download Data</a>
+    </div>
+    <div class="card">
+      <h3>Wall 02</h3>
+      <p>Rounded river stones, stone size: 10–20 cm. Distinct microstructure.</p>
+      <a href="#">Download Data</a>
+    </div>
+    <div class="card">
+      <h3>Wall 03</h3>
+      <p>Limestone, stone size: 10–20 cm. Distinct microstructure.</p>
+      <a href="#">Download Data</a>
+    </div>
   </div>
+</section>
 
-  <footer>
-    <p>© 2025 Blind Prediction Contest</p>
-  </footer>
+<section id="registration">
+  <h2>Registration</h2>
+  <p>Please fill out the form below to register for the blind prediction competition:</p>
+  <!-- Embed your Google Form link below -->
+  <iframe src="YOUR_GOOGLE_FORM_EMBED_LINK_HERE"></iframe>
+</section>
+
+<section id="rules">
+  <h2>Rules & Guidelines</h2>
+  <ul>
+    <li>Participants must submit predictions before the deadline.</li>
+    <li>No changes allowed after submission.</li>
+    <li>Scores will be computed using the official scoring method.</li>
+    <li>Any form of cheating results in disqualification.</li>
+  </ul>
+</section>
+
+<section id="results">
+  <h2>Results & Leaderboard</h2>
+  <p>Leaderboard and scores will be posted here after submissions are evaluated.</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>For questions, please reach out to:</p>
+  <ul>
+    <li>Mati Ullah Shah – mati.shah@epfl.ch</li>
+    <li>Dr. Savvas Saloustros – savvas.saloustros@epfl.ch</li>
+    <li>Prof. Katrin Beyer – katrin.beyer@epfl.ch</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <p>© 2025 Blind Prediction Competition – Funded by SNSF</p>
+</footer>
+
 </body>
 </html>
