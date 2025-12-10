@@ -24,13 +24,38 @@
     line-height: 1.6;
   }
 
-  /* Header */
-  header {
-    background: var(--lake-leman-blue);
-    color: #fff;
-    padding: 1.5rem;
-    text-align: center;
-  }
+/* Header with masonry background */
+header {
+  position: relative;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  text-align: center;
+
+  /* masonry pattern image */
+  background-image: url('imgs/header.png');  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Blue overlay to keep branding + keep text readable */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,108,166,0.75);  /* 75% transparent lake-leman-blue */
+  z-index: 1;
+}
+
+/* Make header text appear above overlay */
+header > * {
+  position: relative;
+  z-index: 2;
+}
+
   header h1 {
     margin: 0;
   }
