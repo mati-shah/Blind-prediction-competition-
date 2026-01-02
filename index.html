@@ -282,12 +282,41 @@ header > * {
 <section id="contact">
   <h2>Contact</h2>
 
-  <p>If you have any questions regarding the blind prediction competition, please feel free to contact:</p>
+  <p>If you have any questions regarding the blind prediction competition, please feel free to contact us:</p>
+
   <ul>
     <li>Mati Ullah Shah – <a href="mailto:mati.shah@epfl.ch">mati.shah@epfl.ch</a></li>
     <li>Dr. Savvas Saloustros – <a href="mailto:savvas.saloustros@epfl.ch">savvas.saloustros@epfl.ch</a></li>
     <li>Prof. Katrin Beyer – <a href="mailto:katrin.beyer@epfl.ch">katrin.beyer@epfl.ch</a></li>
   </ul>
+
+  <p>You may also use the contact form below to send us a message, and we will respond via email:</p>
+
+  <form action="https://formspree.io/f/xykzwkpa" method="POST"
+        style="max-width:600px; margin:1rem 0;">
+
+    <label>
+      Name
+      <input type="text" name="name" required style="width:100%; padding:0.4rem; margin-top:0.25rem;">
+    </label>
+
+    <label>
+      Email
+      <input type="email" name="email" required style="width:100%; padding:0.4rem; margin-top:0.25rem;">
+    </label>
+
+    <label>
+      Message
+      <textarea name="message" rows="5" required style="width:100%; padding:0.4rem; margin-top:0.25rem;"></textarea>
+    </label>
+
+    <!-- Honeypot -->
+    <input type="text" name="_gotcha" style="display:none">
+
+    <button type="submit" style="background:#006CA6; color:#fff; border:none; padding:0.6rem 1rem; border-radius:4px; cursor:pointer; margin-top:0.5rem;">
+      Send Message
+    </button>
+  </form>
 </section>
 
 </div>
